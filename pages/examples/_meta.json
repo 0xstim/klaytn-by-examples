@@ -1,0 +1,11 @@
+{
+  "hello-world": "Hello World",
+  "counter": "Counter",
+  "primitive-data-types": "Primitive Data Types",
+  "variables": "Variables",
+  "constants": "Constants",
+  "immutable": "Immutable",
+  "state-variable": "Reading and Writing to a State Variable",
+  "klay-units": "KLAY and peb",
+  "gas": "Gas and Gas Price"
+}

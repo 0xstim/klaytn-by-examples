@@ -1,0 +1,16 @@
+# Hello World
+```pragma``` specifies the compiler version of Solidity.
+
+## Code
+
+```solidity filename="HelloWorld.sol" {3} copy
+// SPDX-License-Identifier: MIT
+// compiler version must be greater than or equal to 0.8.20 and less than 0.9.0
+pragma solidity ^0.8.20;
+
+contract HelloWorld {
+    string public greet = "Hello World!";
+}
+```
+## Try on Remix
+[HelloWorld.sol](https://remix.ethereum.org/?#code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IE1JVAovLyBjb21waWxlciB2ZXJzaW9uIG11c3QgYmUgZ3JlYXRlciB0aGFuIG9yIGVxdWFsIHRvIDAuOC4yMCBhbmQgbGVzcyB0aGFuIDAuOS4wCnByYWdtYSBzb2xpZGl0eSBeMC44LjIwOwoKY29udHJhY3QgSGVsbG9Xb3JsZCB7CiAgICBzdHJpbmcgcHVibGljIGdyZWV0ID0gIkhlbGxvIFdvcmxkISI7Cn0K)

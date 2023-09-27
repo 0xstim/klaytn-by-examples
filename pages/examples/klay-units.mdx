@@ -1,0 +1,26 @@
+import ColoredText from '../../components/colored-text'
+
+# KLAY and peb
+
+## Code
+Transactions are paid with <ColoredText text="KLAY" color="#e74c3c" />.
+
+Similar to how one dollar is equal to 100 cent, one ether is equal to 10<sup>18</sup> peb.
+
+```solidity filename="KLAYUnits.sol" {2} copy
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract KLAYUnits {
+    uint public onePeb = 1 peb;
+    // 1 wei is equal to 1
+    bool public isOnePeb = 1 peb == 1;
+
+    uint public oneKlay = 1 klay;
+    // 1 klay is equal to 10^18 peb
+    bool public isOneKlay = 1 klay == 1e18;
+}
+```
+
+## Try on Remix
+KLAYUnits.sol
