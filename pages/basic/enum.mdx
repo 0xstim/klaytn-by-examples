@@ -1,0 +1,96 @@
+import { FileTree } from 'nextra/components'
+
+# Enum
+
+Solidity supports enumerables and they are useful to model choice and keep track of state.
+
+Enums can be declared outside of a contract.
+
+```solidity filename="Enum.sol" {2} copy
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract Enum {
+    // Enum representing shipping status
+    enum Status {
+        Pending,
+        Shipped,
+        Accepted,
+        Rejected,
+        Canceled
+    }
+
+    // Default value is the first element listed in
+    // definition of the type, in this case "Pending"
+    Status public status;
+
+    // Returns uint
+    // Pending  - 0
+    // Shipped  - 1
+    // Accepted - 2
+    // Rejected - 3
+    // Canceled - 4
+    function get() public view returns (Status) {
+        return status;
+    }
+
+    // Update status by passing uint into input
+    function set(Status _status) public {
+        status = _status;
+    }
+
+    // You can update to a specific enum like this
+    function cancel() public {
+        status = Status.Canceled;
+    }
+
+    // delete resets the enum to its first value, 0
+    function reset() public {
+        delete status;
+    }
+}
+```
+## Declaring and importing Enum
+
+Create the following .sol files like this:
+<FileTree>
+  <FileTree.Folder name="contracts" defaultOpen>
+    <FileTree.File name="EnumDeclaration.sol" />
+    <FileTree.File name="EnumImport.sol" />
+  </FileTree.Folder>
+</FileTree>
+
+
+File that the enum is declared in
+
+```solidity filename="EnumDeclaration.sol" {2} copy
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+// This is saved 'EnumDeclaration.sol'
+
+enum Status {
+    Pending,
+    Shipped,
+    Accepted,
+    Rejected,
+    Canceled
+}
+```
+
+File that imports the enum above
+```solidity filename="EnumImport.sol" {2} copy
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "./EnumDeclaration.sol";
+
+contract Enum {
+    Status public status;
+}
+```
+
+## Try on Remix
+Enum.sol
+EnumDeclaration.sol
+EnumImport.sol

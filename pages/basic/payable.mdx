@@ -1,0 +1,49 @@
+import ColoredText from '../../components/colored-text'
+
+# Payable
+
+Functions and addresses declared <ColoredText text="payable" color="#e74c3c"/> can receive <ColoredText text="klay" color="#e74c3c"/> into the contract.
+
+```solidity filename="Payable.sol" {2} copy
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract Payable {
+    // Payable address can send Klay via transfer or send
+    address payable public owner;
+
+    // Payable constructor can receive Klay
+    constructor() payable {
+        owner = payable(msg.sender);
+    }
+
+    // Function to deposit Klay into this contract.
+    // Call this function along with some Klay.
+    // The balance of this contract will be automatically updated.
+    function deposit() public payable {}
+
+    // Call this function along with some Klay.
+    // The function will throw an error since this function is not payable.
+    function notPayable() public {}
+
+    // Function to withdraw all Klay from this contract.
+    function withdraw() public {
+        // get the amount of Klay stored in this contract
+        uint amount = address(this).balance;
+
+        // send all Klay to owner
+        (bool success, ) = owner.call{value: amount}("");
+        require(success, "Failed to send Klay");
+    }
+
+    // Function to transfer Klay from this contract to address from input
+    function transfer(address payable _to, uint _amount) public {
+        // Note that "to" is declared as payable
+        (bool success, ) = _to.call{value: _amount}("");
+        require(success, "Failed to send Klay");
+    }
+}
+```
+
+## Try on Remix
+Payable.sol

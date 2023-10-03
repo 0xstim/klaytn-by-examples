@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
   "examples": "Examples",
-  "advanced": "Advanced (A Folder)",
+  "basic": "Basic Solidity",
   "about": {
     "title": "About",
     "type": "page"
